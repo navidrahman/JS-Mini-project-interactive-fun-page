@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Movie Explorer</h1>
+    <button id="allButton">All Movies</button>
+    <button id="actionButton">Action</button>
+    <button id="comedyButton">Comedy</button>
+    <button id="scifiButton">Sci-Fi</button>
+
+    <div id="movies">
+        
+    </div>
+
+
+
+    <script>
+        let movies = [
+                { title: "Space Mission", genre: "Sci-Fi", rating: 4.8, views: 950 },
+                { title: "Funny Friends", genre: "Comedy", rating: 4.2, views: 700 },
+                { title: "Final Battle", genre: "Action", rating: 4.7, views: 1200 },
+                { title: "Robot World", genre: "Sci-Fi", rating: 4.5, views: 850 },
+                { title: "Hero Mission", genre: "Action", rating: 4.6, views: 1000 }
+            ];
+
+            let moviesDiv = document.getElementById("movies");
+            function displaymovies(category) {
+                moviesDiv.innerHTML = "";
+                for (let i = 0; i < movies.length; i++) {
+                    if (category === "All" || movies[i].genre
+                        === category) {
+                    moviesDiv.innerHTML += `
+                    <h3>${movies[i].title}</h3>
+                     <p>Genre: ${movies[i].genre}</p>
+                    <p>Rating: ${movies[i].rating}</p>
+                    <p>Views: ${movies[i].views}</p>
+                    `
+                    
+                }
+                
+            }
+        }
+
+        document.getElementById("allButton").addEventListener("click", function () {
+            displaymovies("All");
+        })
+
+          document.getElementById("actionButton").addEventListener("click", function () {
+                displaymovies("Action");
+       })
+
+
+        document.getElementById("comedyButton").addEventListener("click", function () {
+            displaymovies("Comedy");
+        })
+
+        document.getElementById("scifiButton").addEventListener("click", function () {
+            displaymovies("Sci-Fi");
+        })
+
+        
+            
+    </script>
+</body>
+</html>

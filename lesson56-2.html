@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Random Quote Generator</h1>
+    <p>Click the button to generate a random quote!</p>
+    <button id="quoteButton">Generate Quote</button>
+    <p id="quoteDisplay"></p>
+
+
+
+
+
+
+
+    <script>
+        let quotes = [
+                "Keep learning!",
+                "Practice makes progress!",
+                "Build something amazing!",
+                "Every bug teaches you something.",
+                "Small steps create big results."
+            ];
+        let quoteDisplay = document.getElementById("quoteDisplay");
+        let quoteButton = document.getElementById("quoteButton");
+        
+        function generateRandomQuote() {
+            let index = Math.floor(Math.random() * quotes.length);
+            return quotes[index];
+        }
+
+        quoteButton.addEventListener("click", function() {
+            let randomqoute = generateRandomQuote();
+            quoteDisplay.textContent = randomqoute
+        })
+
+
+
+    </script>
+</body>
+</html>
